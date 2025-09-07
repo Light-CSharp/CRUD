@@ -1,0 +1,30 @@
+name: C# CRUD CI
+
+on:
+    push:
+     branches: [main, develop] #При пуше в ветку main или develop будет запускаться workflow
+
+    pull_request:
+     branches: [main, develop] #При пулл реквесте в ветку main или develop будет запускаться workflow  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest #Workflow запустится на ВМ на основе последней версии Ubuntu
+
+    steps:
+      - name: Checkout repo 
+        uses: actions/checkout@v3 #Подгрузка репозитория
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.0.x' #Подгрузка нужной среды .Net
+
+      - name: Restore dependencies
+        run: dotnet restore #Подтягивает все зависимости
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore #Компиляция кода
+
+
+           
