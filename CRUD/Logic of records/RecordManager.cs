@@ -22,7 +22,7 @@ namespace CRUD.Logic_of_records
             }
 
             // Из вводимого номера вычитаем 1, чтобы получить индекс записи.
-            int recordIndex = Validator.GetIntInRange(1, records.Count + 1) - 1;
+            int recordIndex = Validator.GetIntInRange(1, records.Count) - 1;
             return recordIndex;
         }
 
@@ -44,12 +44,15 @@ namespace CRUD.Logic_of_records
             Console.WriteLine("2. Описание записи.");
             Console.WriteLine("3. Полностью перезаписать запись.");
 
-            return (UpdateOption)Validator.GetIntInRange(1, 3);
+            int choice = Validator.GetIntInRange(1, 3);
+            Console.Clear();
+
+            return (UpdateOption)choice;
         }
 
         private static void UpdateTitle(int recordIndex, Record record)
         {
-            Console.WriteLine("Введите новое наименование записи: ");
+            Console.Write("Введите новое наименование записи: ");
             string newTitle = Validator.GetString();
 
             records[recordIndex] = record with { Title = newTitle };
@@ -57,7 +60,7 @@ namespace CRUD.Logic_of_records
 
         private static void UpdateDescription(int recordIndex, Record record)
         {
-            Console.WriteLine("Введите новое описание записи: ");
+            Console.Write("Введите новое описание записи: ");
             string newDescription = Validator.GetString();
 
             records[recordIndex] = record with { Description = newDescription };
@@ -65,10 +68,10 @@ namespace CRUD.Logic_of_records
 
         private static void UpdateFull(int recordIndex, Record record)
         {
-            Console.WriteLine("Введите новое наименование записи: ");
+            Console.Write("Введите новое наименование записи: ");
             string newTitle = Validator.GetString();
 
-            Console.WriteLine("Введите новое описание записи: ");
+            Console.Write("Введите новое описание записи: ");
             string newDescription = Validator.GetString();
 
             records[recordIndex] = record with { Title = newTitle, Description = newDescription };
