@@ -25,7 +25,7 @@
         }
 
         /// <summary>
-        /// Выводит сообщение синего цвета, нужен для обозначения сведений.
+        /// Выводит сообщение синего цвета, нужен вывода различной информации.
         /// </summary>
         /// <param name="message"></param>
         public static void BlueMessage(string message)
