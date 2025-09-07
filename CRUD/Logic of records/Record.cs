@@ -2,6 +2,6 @@
 {
     public record Record(string Title, string Description)
     {
-        public string GetRecord => $"Наименование записи: {Title}.\nЕё описание: {Description}.";
+        public string GetRecord => $"Наименование записи: {Title}. Её описание: {Description}.";
     }
 }
