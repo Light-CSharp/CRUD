@@ -18,5 +18,16 @@ namespace CRUD.Logic_of_records
             int recordIndex = Validator.GetIntInRange(1, records.Count + 1) - 1;
             return recordIndex;
         }
+
+        private static bool HasRecords()
+        {
+            if (records.Count == 0)
+            {
+                MessageAssistant.RedMessage("Коллекция записей пуста!");
+                return false;
+            }
+
+            return true;
+        }
     }
 }
