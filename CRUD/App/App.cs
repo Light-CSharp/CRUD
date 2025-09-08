@@ -3,7 +3,7 @@ using CRUD.Logic_of_records;
 
 namespace CRUD.App
 {
-    public enum Actions
+    public enum Actions : byte
     {
         CreateRecord = 1,
         ShowRecords,
