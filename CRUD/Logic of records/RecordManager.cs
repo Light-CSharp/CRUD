@@ -4,14 +4,14 @@ namespace CRUD.Logic_of_records
 {
     public static class RecordManager
     {
-        private enum UpdateOption
+        private enum UpdateOption : byte
         {
             Title = 1,
             Description,
             Full
         }
 
-        private static List<Record> records = [];
+        private static readonly List<Record> records = [];
 
         private static int GetRecordIndex()
         {
